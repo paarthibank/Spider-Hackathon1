@@ -1,0 +1,61 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<style type="text/css">
+	.col-lg-2{
+		display: inline-block;
+		height: 673px;
+		background-color: rgb(100,100,100);
+		color: white;
+	}
+	.col{
+		display: inline-block;
+		height: 673px;
+
+	}
+	
+</style>
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-2">
+			
+			
+
+			
+			<div class="input-group mb-3">
+				<h6>Captcha</h6><br>
+				<form action="/url" method="post">
+			 
+			  <input type="text" placeholder="Enter Captcha" id="cap" name="cap">
+			  <input type="hidden" value="<%=text%>" name="ver" id="n1">
+			</div>
+			<br><br><br>
+			<button id="download" type="submit" class="btn btn-primary" style="width: 100%">Check</button>
+		</form>
+
+		</div>
+		<div class="col" id="can" style="margin: 0px; padding: 0px" ><canvas id="canvas" width="1100px" height="670px"></canvas></div>
+	</div>
+</div>
+<script type="text/javascript">
+	var canvas = document.getElementById("canvas");	
+	var cvs=canvas.getContext("2d");
+	var n1=["20pt Arial","50pt Georgia","90pt Sans-serif","75pt Verdana","150pt Arial","65pt Georgia","76pt Sans-serif","80pt Verdana"];
+	var i=Math.random()*4;
+	var j=Math.floor(i);
+	cvs.font=n1[j];
+	cvs.textAlign="center";
+	var text=document.getElementById("n1").value;
+	
+	cvs.fillText(text, 300, 300);
+	cvs.moveTo(200,200);
+	cvs.lineTo(300,350);
+	cvs.moveTo(250,220);
+	cvs.lineTo(350,300);
+	cvs.strokestyle="green";
+	cvs.stroke()
+	
+</script>
+</body></html>
