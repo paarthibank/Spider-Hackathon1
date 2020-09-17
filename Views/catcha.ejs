@@ -43,19 +43,24 @@
 	var canvas = document.getElementById("canvas");	
 	var cvs=canvas.getContext("2d");
 	var n1=["20pt Arial","50pt Georgia","90pt Sans-serif","75pt Verdana","150pt Arial","65pt Georgia","76pt Sans-serif","80pt Verdana"];
-	var i=Math.random()*4;
+	var i=Math.random()*7;
 	var j=Math.floor(i);
+	var k=Math.random()*360;
 	cvs.font=n1[j];
 	cvs.textAlign="center";
+	var m=Math.random()*6;
+	var n=Math.floor(m);
+	var color=["green","yellow","red","blue","magenta","black","magenta"];
+	var gradient=color[n];
 	var text=document.getElementById("n1").value;
-	
+	cvs.fillStyle = gradient;
 	cvs.fillText(text, 300, 300);
 	cvs.moveTo(200,200);
 	cvs.lineTo(300,350);
 	cvs.moveTo(250,220);
 	cvs.lineTo(350,300);
-	cvs.strokestyle="green";
-	cvs.stroke()
-	
+	cvs.stroke();
+	cvs.rotate(k * Math.PI / 180);
+
 </script>
 </body></html>
